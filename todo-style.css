@@ -1,0 +1,224 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to right, #6dd5ed, #2193b0); /* Nice gradient background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #333;
+}
+
+.todo-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+h1 {
+    color: #2193b0;
+    margin-bottom: 25px;
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+.input-section {
+    display: flex;
+    margin-bottom: 25px;
+    gap: 10px;
+}
+
+#newTaskInput {
+    flex-grow: 1; /* Take up remaining space */
+    padding: 12px 15px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 1.1em;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#newTaskInput:focus {
+    border-color: #2193b0;
+    box-shadow: 0 0 0 3px rgba(33, 147, 176, 0.2);
+}
+
+#addTaskButton {
+    padding: 12px 20px;
+    background-color: #2193b0;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#addTaskButton:hover {
+    background-color: #1a7b93;
+    transform: translateY(-2px);
+}
+
+#addTaskButton:active {
+    transform: translateY(0);
+}
+
+#taskList {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px 0;
+    text-align: left; /* Align list items to left */
+}
+
+#taskList li {
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#taskList li:hover {
+    transform: translateX(5px);
+}
+
+#taskList li.completed {
+    background-color: #e0ffe0; /* Light green for completed tasks */
+    text-decoration: line-through;
+    color: #888;
+}
+
+#taskList li span {
+    flex-grow: 1; /* Task text takes available space */
+    font-size: 1.1em;
+    cursor: pointer; /* Indicate it's clickable for toggling complete */
+}
+
+#taskList li .task-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+#taskList li .task-buttons button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: color 0.2s ease, transform 0.2s ease;
+    padding: 5px; /* Add padding for easier clicking */
+}
+
+#taskList li .task-buttons .toggle-btn {
+    color: #4CAF50; /* Green for check */
+}
+
+#taskList li .task-buttons .toggle-btn:hover {
+    color: #388e3c;
+    transform: scale(1.1);
+}
+
+#taskList li.completed .task-buttons .toggle-btn {
+    color: #888; /* Dim checkmark if completed */
+}
+
+
+#taskList li .task-buttons .delete-btn {
+    color: #dc3545; /* Red for delete */
+}
+
+#taskList li .task-buttons .delete-btn:hover {
+    color: #c82333;
+    transform: scale(1.1);
+}
+
+.clear-all-text {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.clear-all-text button {
+    padding: 10px 18px;
+    border: 2px solid #dc3545;
+    background-color: #dc3545;
+    color: white;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.clear-all-text button:first-of-type { /* Style for Clear Completed */
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: #333;
+}
+
+.clear-all-text button:first-of-type:hover {
+    background-color: #e0a800;
+    border-color: #e0a800;
+    transform: translateY(-2px);
+}
+
+.clear-all-text button:last-of-type { /* Style for Clear All */
+    background-color: #f8f9fa;
+    border-color: #dc3545;
+    color: #dc3545;
+}
+
+.clear-all-text button:last-of-type:hover {
+    background-color: #dc3545;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .todo-container {
+        padding: 20px;
+        margin: 15px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .input-section {
+        flex-direction: column;
+    }
+
+    #addTaskButton {
+        width: 100%;
+    }
+
+    #taskList li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    #taskList li span {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    .clear-all-text {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .clear-all-text button {
+        width: 100%;
+    }
+}
